@@ -26,6 +26,22 @@ You can display the result of your website by running:
 zola serve
 ```
 
+## Hacking
+
+By default, the theme comes with all the scss styles already compiled, in such a way that the installation of Bootstrap is not necessary, in order to avoid dependencies such as Node.js in the production file.
+
+If you want to edit the theme's styles, you'll need to have a [Node.js](https://nodejs.org/) interpreter and a [Sass compiler](https://sass-lang.com/install) installed. After that, go to the main path of the theme and execute:
+
+```console
+npm install
+```
+
+```console
+sass --watch sass:static/assets/css
+```
+
+> Keep in mind that the main branch of this repository only has the stable versions of the theme, if you want to see the development status and the unstable versions, change to the corresponding branch.
+
 ## Credits
 
 This theme is mainly built on [Zola](https://www.getzola.org/) and [Bootstrap](https://getbootstrap.com/), plus it makes use of [Google fonts](https://fonts.google.com/).

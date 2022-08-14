@@ -18,7 +18,7 @@ generate_feed = true
 feed_filename = "atom.xml"
 # feed_limit = 20
 
-compile_sass = true
+compile_sass = false
 
 minify_html = false
 hard_link_static = false
