@@ -1,0 +1,11 @@
+{% import "macros/utilities/standard.html" as standard %}
+
+{%- macro get_avatar() -%}
+  <a href="{{ config.extra.social.author_link | safe }}" target="_blank" rel="noopener noreferrer">
+    <img
+      src="{{ standard::get_url_on_location(path = config.extra.avatar) }}"
+      alt="{{ config.extra.author | safe }}"
+      class="img-fluid"
+    >
+  </a>
+{%- endmacro get_avatar -%}

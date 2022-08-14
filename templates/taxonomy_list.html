@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{%- block title -%}
+  {{ config.title | safe }} - 404
+{%- endblock title -%}
+
+
+{%- block sidebar -%}
+  {{ sidebar::sidebar(type = "section") }}
+{%- endblock sidebar -%}
+
+
+{%- block header -%}
+  {{ header::simple_header(type = "section") }}
+{%- endblock header -%}
+
+
+{%- block content -%}
+  <main class="container">
+    <div class="row justify-content-center mt-4 mb-4">
+      <div class="col-10">
+        <h1 class="display-3 mb-5">
+          {{ taxonomy.name | safe }}
+        </h1>
+        {% for term in terms %}
+          <a
+            href="{{ term.permalink | safe }}"
+            class="btn btn-taxonomy m-2 border text-decoration-none"
+          >
+            {{ term.name | safe }}
+            <span class="badge ms-1 text-bg-dark">
+              {{ term.pages | length }}
+            </span>
+          </a>
+        {% endfor %}
+        
+      </div>
+    </div>
+  </main>
+{%- endblock content -%}

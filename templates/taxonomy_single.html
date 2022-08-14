@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% import "macros/utilities/pagination.html" as pagination %}
+
+
+{%- block title -%}
+  {{ config.title }} - {{ term.name }}
+{%- endblock title -%}
+
+
+{%- block sidebar -%}
+  {{ sidebar::sidebar(type = "section") }}
+{%- endblock sidebar -%}
+
+
+{%- block header -%}
+  {{ header::simple_header(type = "section") }}
+{%- endblock header -%}
+
+
+
+{%- block content -%}
+  <main class="container">
+    <div class="row justify-content-center mt-4 mb-4">
+      <div class="col-10">
+        <h1 class="display-3 mb-4">
+          {{ term.name | safe }}
+        </h1>
+        {% for page in paginator.pages %}
+          <article
+            class="card card-bg-light mb-4 pb-3 border border-0 border-bottom rounded-0"
+          >
+            <div class="row g-0">
+              <div class="card-body">
+                <a
+                  href="{{ page.permalink | safe }}"
+                  class="text-decoration-none"
+                >
+                  <h5 class="card-title h4">{{ page.title | safe }}</h5>
+                </a>
+                <p class="card-text text-dark">
+                  {{ page.summary | safe }}
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">
+                    <span class="bi bi-calendar mx-1"></span>
+                      <time datetime="{{ page.date | safe }}">
+                        <a 
+                          href="#" data-bs-toggle="tooltip"
+                          data-bs-title="{{ page.date | date(format='%A, %B %d, %Y %r %Z') | safe }}"
+                          class="text-muted text-decoration-none"
+                        >
+                          {{ page.date | date(format="%B %d, %Y") | safe }}
+                        </a>
+                      </time>
+                  </small>
+                </p>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+  {{ pagination::pagination(paginator = paginator) }}
+{%- endblock content -%}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% import "macros/utilities/images.html" as images %}
+
+
+{%- block title -%}{{ config.title | safe }}{%- endblock title -%}
+
+
+{%- block head -%}
+  {{ head::head(page = section) }}
+{%- endblock head -%}
+
+
+{%- block sidebar -%}
+  {{ sidebar::sidebar(type = "section") }}
+{%- endblock sidebar -%}
+
+
+{%- block header -%}
+  {{ header::header(page = section, type = "section") }}
+{%- endblock header -%}
+
+
+{%- block content -%}
+  <main class="container">
+    <div class="row justify-content-center mt-5 mb-3">
+      <div class="col-auto">
+        <div class="index-avatar border border-3 rounded-circle">
+          {{ images::get_avatar() }}
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mb-5">
+      <div class="col-10 col-sm-8 col-md-7 col-xl-6 text-center">  
+        <div class="mb-1">
+            <a
+              href="{{ config.extra.social.author_link | safe }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-decoration-none"
+            >
+                <h1 class="fs-3">{{ config.title | safe }}</h1>
+            </a>
+        </div>
+        <div class="fs-6 fw-light">
+            {{ config.description | safe }}
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mb-5">
+      <div class="col-10 col-lg-9 col-xl-8">
+        {{ section.content | safe }}
+      </div>
+    </div>
+  </main>
+{%- endblock content -%}
+

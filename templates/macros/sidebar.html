@@ -1,0 +1,62 @@
+{% import "macros/utilities/images.html" as images %}
+{% import "macros/utilities/menus.html" as menus %}
+
+
+{%- macro sidebar(type) -%}
+  {%- if type == "page" -%}
+    {%- set sidebar_class = "d-none d-md-block col-md-3 col-xl-2" -%}
+    {%- set sidebar_profile_class = "d-none d-md-block" -%}
+    {%- set sidebar_social_class = "d-none d-md-block" -%}
+  {%- else -%}
+    {%- set sidebar_class = "d-none d-xl-block col-auto" -%}
+    {%- set sidebar_profile_class = "d-none" -%}
+    {%- set sidebar_social_class = "d-none" -%}
+  {%- endif -%}
+  <div
+    class="sidebar {{ sidebar_class | safe }} mh-100 p-0 overflow-auto"
+  >
+    <aside class="d-flex flex-column justify-content-between h-100">
+      <div class="{{ sidebar_profile_class | safe }} mb-4 pt-5 px-4 text-center">
+        <div class="sidebar-avatar mb-2 mx-auto border border-3 rounded-circle">
+          {{ images::get_avatar() }}
+        </div>
+        <div class="mb-1">
+          <a
+            href="{{ config.base_url | safe }}"
+            class="sidebar-title fs-5 fw-bold text-decoration-none"
+          >
+            {{ config.title | safe }}
+          </a>
+        </div>
+        <div class="fw-light">
+          {{ config.description | safe }}
+        </div>
+      </div>
+
+      {{ menus::sidebar_nav(type = type) }}
+
+      <div class="sidebar-social {{ sidebar_social_class | safe }} mt-4 pb-4 px-4">
+        {{ menus::sidebar_social() }}
+      </div>
+    </aside>
+  </div>
+{%- endmacro sidebar -%}
+
+
+{%- macro offcanvas_sidebar() -%}
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-body p-0">
+      <div class="sidebar container-fluid vh-100">
+        <div class="row h-100">
+          <div
+            class="col mh-100 px-0 overflow-auto"
+          >
+            <aside class="d-flex flex-column justify-content-between h-100">
+              {{ menus::offcanvas_sidebar_nav() }}
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endmacro offcanvas_sidebar -%}

@@ -1,0 +1,55 @@
+{%- macro search_js(lang) -%}
+  <script src="{{ get_url(path='elasticlunr.min.js') | safe }}"></script>
+  <script src="{{ get_url(path='search_index.' ~ config.default_language ~ '.js') | safe }}"></script>
+  {%- if lang != "en" -%}
+    <script src="{{ get_url(path='assets/js/search/lunr.stemmer.support.min.js') | safe }}"></script>
+    <script src="{{ get_url(path='assets/js/search/lunr.' ~ lang ~ '.min.js') | safe }}"></script>
+  {%- endif -%}
+  <script src="{{ get_url(path='assets/js/search/search.js') | safe }}"></script>
+{%- endmacro search_js -%}
+
+
+{%- macro search_btn() -%}
+  <button
+    type="button" data-bs-toggle="modal" data-bs-target="#searchModal"
+    class="btn border border-0"
+  >
+    <span class="bi bi-search fs-5"></span>
+  </button>
+{%- endmacro search_btn -%}
+
+
+{%- macro search_modal() -%}
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="searchModalLabel">
+          {{ trans(key="search") | safe }}
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div
+          id="searchInput" role="search" 
+          class="d-flex mb-3 border rounded-5 bg-white"
+        >
+          <input
+            id="search" type="search"
+            class="form-control border border-0 rounded-5 rounded-end"
+            placeholder="{{ trans(key='search') | safe }}"
+            aria-label="{{ trans(key='search') | safe }}"
+          >
+          <div class="rounded-5 rounded-start py-2 ps-2 pe-3">
+            <span class="bi bi-search"></span>
+          </div>
+        </div>
+        <div class="search-results">
+          <div class="search-results__items">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{%- endmacro search_modal -%}

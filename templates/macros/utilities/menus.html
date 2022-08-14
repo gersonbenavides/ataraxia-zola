@@ -1,0 +1,102 @@
+{% import "macros/utilities/standard.html" as standard %}
+
+
+{%- macro sidebar_nav(type) -%}
+  {%- if type == "page" -%}
+    {%- set nav_icon_class = "d-none" -%}
+    {%- set nav_text_class = "d-none d-md-inline" -%}
+  {%- else -%}
+    {%- set nav_icon_class = "d-none d-xl-inline" -%}
+    {%- set nav_text_class = "d-none" -%}
+  {%- endif -%}
+
+  <div class="sidebar-nav list-group my-auto rounded-0 text-center">
+    {%- for item in config.extra.menus.nav -%}
+      <a
+        href="{{ standard::get_url_on_location(path = item.url) }}"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="{{ item.name | safe }}"
+      >
+        <span class="bi {{ item.icon | safe }} {{ nav_icon_class | safe }} fs-4"></span>
+        <span class="{{ nav_text_class | safe }}">
+          {{ item.name | safe }}
+        </span>
+      </a>
+    {%- endfor -%}
+  </div>
+{%- endmacro sidebar_nav -%}
+
+
+{%- macro offcanvas_sidebar_nav() -%}
+  <div class="sidebar-nav list-group my-auto rounded-0 text-start">
+    {%- for item in config.extra.menus.nav -%}
+      <a
+        href="{{ standard::get_url_on_location(path = item.url) }}"
+        class="sidebar-nav-item list-group-item list-group-item-action border border-0"
+        data-bs-toggle="tooltip" data-bs-title="{{ item.name | safe }}"
+      >
+        <span class="bi {{ item.icon | safe }} me-1 fs-4"></span>
+        <span>{{ item.name | safe }}</span>
+      </a>
+    {%- endfor -%}
+  </div>
+{%- endmacro offcanvas_sidebar_nav -%}
+
+
+{%- macro sidebar_social() -%}
+  {%- if config.extra.social.links -%}
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        {%- for link in config.extra.social.links -%}
+          <div class="col-auto">
+            <a
+              href="{{ link.url | safe }}"
+              target="_blank" rel="noopener noreferrer"
+              data-bs-toggle="tooltip"
+              data-bs-title='{{ link.name | safe }}'
+              class="text-decoration-none"
+            >
+              <span class="bi {{ link.icon | safe }}"></span>
+            </a>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+{%- endmacro sidebar_social -%}
+
+
+{%- macro top_bar_nav(page, type) -%}
+  {%- if type == "page" -%}
+    {%- set top_navbar_class = "justify-content-center justify-content-md-start" -%}
+  {%- else -%}
+    {%- set top_navbar_class = "justify-content-center justify-content-xl-start" -%}
+  {%- endif -%}
+
+  <div class="row {{ top_navbar_class | safe }} p-2 ps-xl-3 text-center">
+    {%- set page_ancestor = page.ancestors | last | safe -%}
+
+    {%- if page_ancestor -%}
+      {%- set section = get_section(path = page_ancestor) -%}
+      <div class="col-auto d-none d-xl-block">
+        <a
+          href="{{ section.permalink | safe }}"
+          class="text-decoration-none"
+        >
+          {{ section.title | safe }}
+        </a>
+      </div>
+      <div class="col-auto d-none d-xl-block">
+        <span class="text-secondary">
+          »
+        </span>
+      </div>
+    {%- endif -%}
+
+    <div class="col-auto">
+      <span class="text-secondary">
+        {{ page.title | safe }}
+      </span>
+    </div>
+  </div>
+{%- endmacro top_bar_nav -%}

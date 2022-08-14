@@ -1,0 +1,22 @@
+{
+  "name": "ataraxia-zola",
+  "version": "1.0.0",
+  "description": "A simple and beautiful theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gersonbdev/ataraxia-zola.git"
+  },
+  "author": "Gerson Benavides",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/gersonbdev/ataraxia-zola/issues"
+  },
+  "homepage": "https://github.com/gersonbdev/ataraxia-zola#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.0"
+  }
+}

@@ -1,0 +1,130 @@
+@import "colors/open-color.scss";
+
+$font-family-base: 'Montserrat', sans-serif;;
+
+$sidebar-bg:             $oc-gray-2;
+$sidebar-color:          $oc-gray-6;
+$sidebar-title-color:    $oc-gray-7;
+$sidebar-nav-color:      $oc-gray-7;
+$sidebar-social-color:   $oc-gray-6;
+
+$sidebar-bg-hover:       $oc-gray-1;
+$sidebar-color-hover:    $oc-gray-8;
+
+
+$primary:             $oc-blue-6;
+$secondary:           $oc-gray-6;
+$success:             $oc-green-9;
+$info:                $oc-cyan-3;
+$warning:             $oc-yellow-4;
+$danger:              $oc-red-8;
+$light:               $oc-gray-0;
+$dark:                $oc-gray-8;
+
+
+$offcanvas-horizontal-width: 176px;
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+a {
+    color: $oc-blue-8;
+    text-decoration: none;
+}
+
+a:hover {
+    color: $oc-orange-8;
+    text-decoration: underline;
+}
+
+::selection {
+    color: white;
+    background: $oc-blue-5;
+}
+
+.sidebar {
+    color:               $sidebar-color;
+    background-color:    $sidebar-bg;
+
+    a {
+        color:    $sidebar-color;
+    }
+
+    a:hover {
+        color:    $sidebar-color-hover;
+    }
+
+    .sidebar-avatar {
+        width: 96px;
+        height: 96px;
+        overflow: hidden;
+    
+        img:hover {
+            transform: scale(1.25);
+            transition: .5s;
+        }
+    }
+
+    .sidebar-title {
+        color: $sidebar-title-color;
+    }
+
+    .sidebar-nav {
+        background-color: $sidebar-bg;
+
+        .sidebar-nav-item {
+            color: $sidebar-nav-color;
+            font-weight: 500;
+            background-color: $sidebar-bg;
+        }
+
+        .sidebar-nav-item:hover {
+            background-color: $sidebar-bg-hover;
+        }
+    }
+
+    .sidebar-social {
+        a {
+            color: $sidebar-social-color;
+        }
+
+        a:hover {
+            color: $sidebar-color-hover;
+        }
+    }
+}
+
+.bg-sidebar {
+    background-color:    $sidebar-bg;
+}
+
+
+
+.navbar-bg-light {
+    background-color: rgba(white, 1);
+}
+
+.card-bg-light {
+    background-color: white;
+}
+
+
+.index-avatar {
+    width: 208px;
+    height: 208px;
+    overflow: hidden;
+
+    img:hover {
+        transform: scale(1.25);
+        transition: .5s;
+    }
+}
+
+.post-img {
+    overflow: hidden;
+}
+
+.btn-taxonomy {
+    background-color: $oc-gray-2;
+}

@@ -1,0 +1,53 @@
+<!-- mx-2 mx-sm-5 -->
+
+{%- macro footer() -%}
+  <footer class="container-fluid mt-auto">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="row pt-3 pb-4 border-top">
+          <div class="col-12 col-md-6 mb-2 mb-md-0 text-center text-md-start">
+            <small class="text-secondary">
+              © {{ now() | date(format="%Y") }}
+              <a 
+                href="{{ config.extra.social.author_link | safe }}"
+                target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none"
+              >
+                {{ config.extra.author | safe }}&period;
+              </a>
+              <a
+                href="#"
+                data-bs-toggle="tooltip"
+                data-bs-title="{{ trans(key='full_copyright') | safe }}"
+                class="text-secondary text-decoration-none"
+              >
+                {{ trans(key="short_copyright") | safe }}
+              </a>
+            </small>
+          </div>
+          <div class="col-12 col-md-6 text-center text-md-end">
+            <small class="text-secondary">
+              Powered by
+              <a 
+                href="https://www.getzola.org/"
+                target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none"
+              >
+                Zola
+              </a>
+              with
+              <a 
+                href="https://github.com/gersonbdev/ataraxia-zola"
+                target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none"
+              >
+                Ataraxia
+              </a>
+              theme.
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+{%- endmacro footer -%}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import "macros/utilities/images.html" as images %}
+
+
+{%- block title -%}
+  {{ page.title | safe }} - {{ config.title | safe }}
+{%- endblock title -%}
+
+
+{%- block head -%}
+  {{ head::head(page = page) }}
+{%- endblock head -%}
+
+
+{%- block sidebar -%}
+  {{ sidebar::sidebar(type = "section") }}
+{%- endblock sidebar -%}
+
+
+{%- block header -%}
+  {{ header::header(page = page, type = "section") }}
+{%- endblock header -%}
+
+
+{%- block content -%}
+  <main class="container">
+    <h1 class="mb-3">
+      {{ page.title | safe }}
+    </h1>
+    <div class="row justify-content-center mt-5 mb-5">
+      <div class="col-10 col-lg-9 col-xl-8">
+        {{ page.content | safe }}
+      </div>
+    </div>
+  </main>
+{%- endblock content -%}

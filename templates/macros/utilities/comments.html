@@ -1,0 +1,25 @@
+{%- macro disqus(page) -%}
+  <div id="disqus_thread"></div>
+  <script>        
+    var disqus_config = function () {
+      this.page.url = '{{ page.permalink | safe }}';  
+
+      this.page.identifier = '{{ page.extra.page_identifier | safe }}'; 
+    };
+    
+    (function() {
+      var d = document, s = d.createElement('script');
+      
+      s.src = 'https://{{ config.extra.comments.disqus | safe }}.disqus.com/embed.js';
+      
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the 
+    <a href="https://disqus.com/?ref_noscript" rel="nofollow">
+      comments powered by Disqus.
+    </a>
+  </noscript>
+{%- endmacro disqus -%}

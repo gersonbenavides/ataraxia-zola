@@ -1,0 +1,37 @@
+<div class="{% if class %}{{ class | safe }}{% endif %}">
+  <ul class="nav nav-tabs" id="{{ id | safe }}" role="tablist">
+    {%- for tab in tab_titles -%}
+      <li class="nav-item" role="presentation">
+        <button
+          id="{{ id | safe }}-{{ loop.index0 }}-tab"
+          data-bs-toggle="tab" data-bs-target="#{{ id | safe }}-{{ loop.index0 }}-tab-pane"
+          type="button" role="tab" aria-controls="{{ id | safe}}-{{ loop.index0 }}-tab-pane"
+          {%- if loop.first -%}
+            class="nav-link active"
+            aria-selected="true"
+          {%- else -%}
+            class="nav-link"
+            aria-selected="false"
+          {%- endif -%}
+        >
+          {{ tab | safe }}
+        </button>
+      </li>
+    {%- endfor -%}
+  </ul>
+  <div class="tab-content py-3 px-2" id="{{ id | safe }}Content">
+    {%- for content in tab_contents -%}
+      <div
+        id="{{ id | safe }}-{{ loop.index0 }}-tab-pane" role="tabpanel"
+        aria-labelledby="{{ id | safe }}-{{ loop.index0 }}-tab" tabindex="0"
+        {%- if loop.first -%}
+          class="tab-pane fade show active"
+        {%- else -%}
+          class="tab-pane fade"
+        {%- endif -%}
+      >
+        {{ content | safe }}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>

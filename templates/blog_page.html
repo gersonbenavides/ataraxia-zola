@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% import "macros/utilities/posts.html" as posts %}
+{% import "macros/utilities/comments.html" as comments %}
+
+
+{%- block title -%}
+  {{ page.title | safe }} - {{ config.title | safe }}
+{%- endblock title -%}
+
+
+{%- block head -%}
+  {{- head::head(page = page) -}}
+{%- endblock head -%}
+
+
+{%- block sidebar -%}
+  {{ sidebar::sidebar(type = "page") }}
+{%- endblock sidebar -%}
+
+
+{%- block header -%}
+  {{ header::header(page = page, type = "page") }}
+{%- endblock header -%}
+
+
+{%- block content -%}
+  <main class="container">
+    <div class="row justify-content-center mt-5 mb-3">
+      <div class="col-10 col-lg-9 col-xl-8">
+        <h1 class="mb-3">
+          {{ page.title | safe }}
+        </h1>
+        <div class="row mt-3 mb-2">
+          <div class="col-auto">
+            <small class="text-muted">
+              {{ trans(key="by") | safe }}:
+              <a
+                href="{{ config.extra.social.author_link | safe }}"
+                target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none"
+              >
+                {{ config.extra.author | safe }}
+              </a>
+            </small>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-auto mb-2">
+            <small class="text-muted">
+              {{ trans(key="posted") | safe }}:
+              <time datetime="{{ page.date | safe }}">
+                <a 
+                  href="#" data-bs-toggle="tooltip"
+                  data-bs-title="{{ page.date | date(format='%A, %B %d, %Y %r %Z') | safe }}"
+                  class="text-muted text-decoration-none"
+                >
+                  {{ page.date | date(format="%B %d, %Y") | safe }}
+                </a>
+              </time>
+            </small>
+          </div>
+          {% if page.updated %}
+            <div class="col-auto">
+              <small class="text-muted">
+                {{ trans(key="updated") | safe }}:
+                <time datetime="{{ page.updated | safe }}">
+                  <a 
+                    href="#" data-bs-toggle="tooltip"
+                    data-bs-title="{{ page.updated | date(format='%A, %B %d, %Y %r %Z') | safe }}"
+                    class="text-muted text-decoration-none"
+                  >
+                    {{ page.updated | date(format="%B %d, %Y") | safe }}
+                  </a>
+                </time>
+              </small>
+            </div>
+          {% endif %}
+        </div>
+        {%- if page.extra.image -%}
+          <div class="post-img mb-4 rounded-3">
+            <img
+              src="{{ get_url(path = page.extra.image.path) | safe }}"
+              class="img-fluid"
+              alt="{{ page.extra.image.alt | safe }}"
+            >
+          </div>
+        {%- endif -%}
+        <div>
+          {{ page.content | safe }}
+        </div>
+        {% if page.taxonomies.categories %}
+          <div class="row">
+            <div class="col-auto">
+              <span class="bi bi-bookmarks fs-6 me-1"></span>
+              {{ posts::categories_btn(categories = page.taxonomies.categories) }}
+            </div>
+          </div>
+        {% endif %}
+        {% if page.taxonomies.tags %}
+          <div class="row">
+            <div class="col-auto">
+              <span class="bi bi-tags fs-6 me-1"></span>
+              {{ posts::tags_btn(tags = page.taxonomies.tags) }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </main>
+{%- endblock content -%}
+
+
+{%- block comments -%}
+  <div class="container">
+    <div class="row justify-content-center mt-3 mb-4">
+      <div class="col-10 col-lg-9 col-xl-8">
+        {%- if page.extra.page_identifier -%}
+          {{ comments::disqus(page = page) }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endblock comments -%}

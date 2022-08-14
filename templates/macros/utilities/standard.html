@@ -1,0 +1,9 @@
+{%- macro get_url_on_location(path) -%}
+  {% set path_safe = path | safe  %}
+
+  {%- if path_safe is containing("http://") or path_safe is containing("https://") -%}
+    {{ path_safe | safe }}
+  {%- else -%}
+    {{ get_url(path = path_safe) | safe }}
+  {%- endif -%}
+{%- endmacro get_url_on_location -%}

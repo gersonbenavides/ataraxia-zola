@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+
+{%- block title -%}
+  {{ config.title | safe }} - 404
+{%- endblock title -%}
+
+
+{%- block head -%}
+  <meta name="robots" content="noindex">
+{%- endblock head -%}
+
+
+{%- block sidebar -%}
+  {{ sidebar::sidebar(type = "section") }}
+{%- endblock sidebar -%}
+
+
+{%- block header -%}
+  {{ header::simple_header(type = "section") }}
+{%- endblock header -%}
+
+
+{%- block content -%}
+  <main class="container my-auto">
+    <div class="row justify-content-center text-center">
+      <div class="col-10 col-md-8 col-xl-6 mb-1">
+        <span class="display-1">404</span>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-10 col-md-8 col-xl-6 text-center">
+        <span class="display-5">{{ trans(key="404_message") | safe }}</span>
+      </div>
+    </div>
+  </main>
+{%- endblock content -%}

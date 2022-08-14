@@ -1,0 +1,55 @@
+{% import "macros/utilities/menus.html" as menus %}
+
+
+{%- macro header(page, type) -%}
+  <nav
+    class="navbar navbar-expand navbar-bg-light sticky-top border-bottom"
+  >
+    <div class="container-fluid">
+      {%- if type == "page" -%}
+        {%- set offcanvas_btn_class = "d-block d-md-none"  -%}
+      {%- else -%}
+        {%- set offcanvas_btn_class = "d-block d-xl-none"  -%}
+      {%- endif -%}
+      <button
+        type="button"
+        class="btn {{ offcanvas_btn_class | safe }} fs-5"
+        data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+        aria-controls="offcanvas"
+      >
+        <span class="bi bi-list"></span>
+      </button>
+      
+      <div class="col-6">
+        {{ menus::top_bar_nav(page = page, type = type) }}
+      </div>
+
+      {{ search::search_btn() }}
+    </div>
+  </nav>
+{%- endmacro header -%}
+
+
+{%- macro simple_header(type) -%}
+  <nav
+    class="navbar navbar-bg-light sticky-top border-bottom"
+  >
+    <div class="container-fluid">
+      {%- if type == "page" -%}
+        {%- set offcanvas_btn_class = "d-block d-md-none"  -%}
+      {%- else -%}
+        {%- set offcanvas_btn_class = "d-block d-xl-none"  -%}
+      {%- endif -%}
+      <button
+        type="button"
+        class="btn {{ offcanvas_btn_class | safe }} fs-5"
+        data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+        aria-controls="offcanvas"
+      >
+        <span class="bi bi-list"></span>
+      </button>
+      
+      {{ search::search_btn() }}
+    </div>
+  </nav>
+{%- endmacro simple_header -%}

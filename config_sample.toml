@@ -1,0 +1,177 @@
+# The base URL of the site.
+base_url = "https://website-url.com/"
+
+# To avoid problems with some variables due to multilingual support,
+# you will find repeated variables in the language section,
+# it is recommended that you keep those of your language and the general
+# ones with the same data.
+default_language = "en"
+theme = "ataraxia"
+
+# To find a detailed description of the following configuration variables
+# you can go to https://www.getzola.org/documentation/getting-started/configuration/
+
+output_dir = "public"
+
+build_search_index = true
+generate_feed = true
+feed_filename = "atom.xml"
+# feed_limit = 20
+
+compile_sass = true
+
+minify_html = false
+hard_link_static = false
+
+# ignored_content = []
+
+
+[extra]
+    author = "Your name"
+
+    # Use a square image (same height as width) of 256px
+    avatar = "images/avatar.png"
+
+    # To use a favicon convert your image to https://realfavicongenerator.net/,
+    # then download and copy the package to static/images/favicon
+    favicon = true
+    locale = "en_US"
+
+    # Ataraxia uses Bootstrap icons,
+    # you can go to https://icons.getbootstrap.com/ to find the full list
+    [extra.menus]
+        nav = [
+            { name = "Home", url = "@/_index.md", icon = "bi-house" },
+            { name = "Blog", url = "@/blog/_index.md", icon = "bi-file-text" },
+            { name = "Author", url = "https://gersonbdev.github.io/", icon = "bi-person" },
+            { name = "About", url = "https://github.com/gersonbdev/ataraxia-zola", icon = "bi-question-octagon" }
+        ]
+    
+    [extra.social]
+        author_link = "https://author-url.com/"
+        twitter = "@user"
+        links = [
+            { name = "GitHub", url = "https://github.com/", icon = "bi-github" },
+            { name = "Facebook", url = "https://www.facebook.com/", icon = "bi-facebook" }
+        ]
+
+    [extra.seo]
+        google_analytics = "G-0123456789"
+        google_search_console = "0123457890abcdefg"
+    
+    [extra.comments]
+        disqus = "user"
+
+    [extra.copyright]
+        name = "CC BY 4.0"
+        url = "https://creativecommons.org/licenses/by/4.0/"
+
+
+[languages]
+    [languages.en]
+        title = "Website name"
+        description = "Website Description"
+        generate_feed = true
+        feed_filename = "atom.xml"
+        taxonomies = [
+            { name = "tags", feed = true, paginate_by = 5  },
+            { name = "categories", feed = true, paginate_by = 5 }
+        ]
+
+    [languages.es]
+        title = "Nombre del sitio web"
+        description = "Descripción del sitio web"
+        generate_feed = true
+        feed_filename = "atom.xml"
+        taxonomies = [
+            { name = "tags", feed = true, paginate_by = 5  },
+            { name = "categories", feed = true, paginate_by = 5 }
+        ]
+
+
+    [languages.en.translations]
+        post = "Post"
+        category = "Category"
+        tag = "Tag"
+        search = "Search"
+
+        404_message = "Page not found"
+
+        by = "By"
+        posted = "Posted"
+        updated = "Updated"
+        categories = "Categories"
+        tags = "Tags"
+        share = "Share"
+        
+        next = "Next"
+        previous = "Previous"
+
+        short_copyright = "Some rights reserved."
+        full_copyright = """\
+            Except where otherwise noted, the blog posts on this site are \
+            licensed under the Creative Commons Attribution 4.0 International \
+            (CC BY 4.0) License by the author.\
+            """
+
+    [languages.es.translations]
+        post = "Entrada"
+        category = "Categoría"
+        tag = "Etiqueta"
+        search = "Buscar"
+
+        404_message = "Página no encontrada"
+
+        by = "Por"
+        posted = "Publicado"
+        updated = "Actualizado"
+        categories = "Categorías"
+        tags = "Etiquetas"
+        share = "Compartir"
+        
+        next = "Siguiente"
+        previous = "Anterior"
+        
+        short_copyright = "Algunos derechos reservados."
+        full_copyright = """\
+            Salvo que se indique explícitamente, las entradas de este blog \
+            están licenciadas bajo la Creative Commons Attribution 4.0 \
+            International (CC BY 4.0) License por el autor.\
+            """
+
+
+[markdown]
+    highlight_code = true
+    # extra_syntaxes_and_themes = []
+    highlight_theme = "gruvbox-dark"
+
+    render_emoji = true
+
+
+    external_links_target_blank = true
+    external_links_no_follow = true
+    external_links_no_referrer = true
+
+    smart_punctuation = false
+
+
+[search]
+    include_title = true
+    include_description = false
+    include_path = false
+    include_content = true
+    # truncate_content_length = 100
+
+
+[link_checker]
+    # skip_prefixes = []
+    # skip_anchor_prefixes = []
+
+    internal_level = "error"
+    external_level = "error"
+
+
+[slugify]
+    paths = "on"
+    taxonomies = "on"
+    anchors = "on"

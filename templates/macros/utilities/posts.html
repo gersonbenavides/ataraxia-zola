@@ -1,0 +1,38 @@
+{%- macro categories(categories) -%}
+  {% for category in categories %}
+    <a
+      href="{{ get_taxonomy_url(kind = 'categories', name = category) | safe }}"
+      class="m-1 text-decoration-none"
+    >
+      {{ category | safe }}
+    </a>
+  {% endfor %}
+{%- endmacro categories -%}
+
+
+{%- macro categories_btn(categories) -%}
+  {% for category in categories %}
+    <a
+      href="{{ get_taxonomy_url(kind = 'categories', name = category) | safe }}"
+      class="btn btn-taxonomy btn-sm m-1 border text-decoration-none"
+    >
+      <small>
+        {{ category | safe }}
+      </small>
+    </a>
+  {% endfor %}
+{%- endmacro categories_btn -%}
+
+
+{%- macro tags_btn(tags) -%}
+  {% for tag in tags %}
+    <a
+      href="{{ get_taxonomy_url(kind = 'tags', name = tag) | safe }}"
+      class="btn btn-taxonomy btn-sm m-1 border text-decoration-none"
+    >
+      <small>
+        {{ tag | safe }}
+      </small>
+    </a>
+  {% endfor %}
+{%- endmacro tags_btn -%}

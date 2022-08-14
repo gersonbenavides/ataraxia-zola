@@ -1,0 +1,17 @@
+{%- macro head(page) -%}
+  <link rel="canonical" href="{{ page.permalink | safe }}" />
+  {%- if config.generate_feed -%}
+    {%- if config.feed_filename == "atom.xml" -%}
+      <link rel="alternate" type="application/atom+xml"
+        title="RSS" href="{{ get_url(path='atom.xml', trailing_slash=false) | safe }}"
+      >
+    {%- elif config.feed_filename == "rss.xml" -%}
+      <link rel="alternate" type="application/rss+xml"
+        title="RSS" href="{{ get_url(path='rss.xml', trailing_slash=false) | safe }}"
+      >
+    {%- endif -%}
+  {%- endif -%}
+  {{ seo::meta_tags(page = page) }}
+  {{ seo::open_graph(page = page) }}
+  {{ seo::twitter_cards() }}
+{%- endmacro head -%}
