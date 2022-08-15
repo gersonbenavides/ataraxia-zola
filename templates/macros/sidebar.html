@@ -36,7 +36,11 @@
       {{ menus::sidebar_nav(type = type) }}
 
       <div class="sidebar-social {{ sidebar_social_class | safe }} mt-4 pb-4 px-4">
-        {{ menus::sidebar_social() }}
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            {{ menus::social_links() }}
+          </div>
+        </div>
       </div>
     </aside>
   </div>

@@ -20,11 +20,41 @@ git clone https://github.com/gersonbdev/ataraxia-zola.git
 
 Copy the `config_sample.toml` file to your site's main path, then rename it to `config.toml` and edit it with your site data.
 
+> You can see the [Gerson's website](https://github.com/gersonbdev/gersonbdev.github.io) repository for theme setup guide.
+
+For the site to work properly you need to create a `_index.md` file within the `content` path with the following structure:
+
+```toml
++++
+title = "Home"
+description = "Home site description."
+sort_by = "date"
+template = "index.html"
+page_template = "page.html"
++++
+```
+
+You can add more markdown content inside this file if you need to.
+
+If you want to enable the site's blog, create a _index.md file inside the `content/blog` path then copy the following structure inside the file:
+
+```toml
++++
+title = "Blog"
+description = "Blog site description."
+sort_by = "date"
+paginate_by = 5
+template = "blog.html"
+page_template = "blog_page.html"
++++
+```
+
 You can display the result of your website by running:
 
 ```console
 zola serve
 ```
+
 
 ## Hacking
 

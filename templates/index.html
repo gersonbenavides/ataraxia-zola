@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "macros/utilities/images.html" as images %}
+{% import "macros/utilities/menus.html" as menus %}
 
 
 {%- block title -%}{{ config.title | safe }}{%- endblock title -%}
@@ -41,8 +42,11 @@
                 <h1 class="fs-3">{{ config.title | safe }}</h1>
             </a>
         </div>
-        <div class="fs-6 fw-light">
+        <div class="fs-6 fw-light mb-2">
             {{ config.description | safe }}
+        </div>
+        <div class="row justify-content-center fs-4">
+          {{ menus::social_links() }}
         </div>
       </div>
     </div>

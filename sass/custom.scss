@@ -2,14 +2,17 @@
 
 $font-family-base: 'Montserrat', sans-serif;;
 
-$sidebar-bg:             $oc-gray-2;
-$sidebar-color:          $oc-gray-6;
-$sidebar-title-color:    $oc-gray-7;
-$sidebar-nav-color:      $oc-gray-7;
-$sidebar-social-color:   $oc-gray-6;
 
-$sidebar-bg-hover:       $oc-gray-1;
-$sidebar-color-hover:    $oc-gray-8;
+$sidebar-bg:                $oc-gray-2;
+$sidebar-color:             $oc-gray-6;
+$sidebar-title-color:       $oc-gray-7;
+$sidebar-nav-icon-color:    $oc-gray-7;
+$sidebar-nav-text-color:    $oc-gray-6;
+$sidebar-social-color:      $oc-gray-6;
+
+$sidebar-bg-hover:           $oc-gray-1;
+$sidebar-color-hover:        $oc-gray-8;
+$sidebar-nav-color-hover:    $oc-gray-8;
 
 
 $primary:             $oc-blue-6;
@@ -74,13 +77,20 @@ a:hover {
         background-color: $sidebar-bg;
 
         .sidebar-nav-item {
-            color: $sidebar-nav-color;
             font-weight: 500;
             background-color: $sidebar-bg;
         }
 
         .sidebar-nav-item:hover {
             background-color: $sidebar-bg-hover;
+        }
+
+        .sidebar-nav-icon {
+            color: $sidebar-nav-icon-color;
+        }
+
+        .sidebar-nav-text {
+            color: $sidebar-nav-text-color;
         }
     }
 

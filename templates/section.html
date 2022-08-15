@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% import "macros/utilities/pagination.html" as pagination %}
+{% import "macros/utilities/posts.html" as posts %}
+
+{%- block title -%}
+  {{ section.title | safe }} - {{ config.title | safe }}
+{%- endblock title -%}
+
+
+{%- block head -%}
+  {{ head::head(page = section) }}
+{%- endblock head -%}
+
+
+{%- block sidebar -%}
+  {{ sidebar::sidebar(type = "section") }}
+{%- endblock sidebar -%}
+
+
+{%- block header -%}
+  {{ header::header(page = section, type = "section") }}
+{%- endblock header -%}
+
+
+{%- block content -%}
+  <main class="container">
+    <div class="row justify-content-center mt-4 mb-4">
+      <div class="col-10">
+        <h1 class="mb-3">
+          {{ section.title | safe }}
+        </h1>
+        {% for page in paginator.pages %}
+          {% set class_card_body = "" %}
+          <article
+            class="card card-bg-light mb-3 pb-3 border border-0 border-bottom rounded-0"
+          >
+            <div class="row g-0">
+              {% if page.extra.image.visible_in_main %}
+                {% set class_card_body = "col-xl-8 ps-xl-2" %}
+
+                <header class="col-xl-4 align-self-center px-3 px-lg-4 px-xl-0">
+                  <img
+                    src="{{ get_url(path = page.extra.image.path) | safe }}"
+                    class="img-fluid"
+                    alt="{{ page.extra.image.alt | safe }}"
+                  >
+                </header>
+              {% endif %}
+              <div class="{{ class_card_body | safe }}">
+                <div class="card-body">
+                  <a
+                    href="{{ page.permalink | safe }}"
+                    class="text-decoration-none"
+                  >
+                    <h5 class="card-title h4">{{ page.title | safe }}</h5>
+                  </a>
+                  <p class="card-text text-dark">
+                    {{ page.summary | safe }}
+                  </p>
+                  <p class="row card-text">
+                    <small class="col-auto my-1 me-4 text-muted">
+                      <span class="bi bi-calendar mx-1"></span>
+                      <time datetime="{{ page.date | safe }}">
+                        <a 
+                          href="#" data-bs-toggle="tooltip"
+                          data-bs-title="{{ page.date | date(format='%A, %B %d, %Y %r %Z') | safe }}"
+                          class="text-muted text-decoration-none"
+                        >
+                          {{ page.date | date(format="%B %d, %Y") | safe }}
+                        </a>
+                      </time>
+                    </small>
+                    <small class="col-auto my-1 text-muted">
+                      {% if page.taxonomies.categories %}
+                        <span class="bi bi-bookmarks"></span>
+                        {{ posts::categories(categories = page.taxonomies.categories) }}
+                      {% endif %}
+                    </small>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+  <div class="mt-auto">
+    {{ pagination::pagination(paginator = paginator) }}
+  </div>
+{%- endblock content -%}

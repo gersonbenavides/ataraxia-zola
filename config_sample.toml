@@ -29,7 +29,7 @@ hard_link_static = false
 [extra]
     author = "Your name"
 
-    # Use a square image (same height as width) of 256px
+    # Use a square image (same height as width)
     avatar = "images/avatar.png"
 
     # To use a favicon convert your image to https://realfavicongenerator.net/,
@@ -42,7 +42,7 @@ hard_link_static = false
     [extra.menus]
         nav = [
             { name = "Home", url = "@/_index.md", icon = "bi-house" },
-            { name = "Blog", url = "@/blog/_index.md", icon = "bi-file-text" },
+            { name = "Blog", url = "@/blog/_index.md", icon = "bi-file-earmark-text" },
             { name = "Author", url = "https://gersonbdev.github.io/", icon = "bi-person" },
             { name = "About", url = "https://github.com/gersonbdev/ataraxia-zola", icon = "bi-question-octagon" }
         ]
@@ -51,7 +51,10 @@ hard_link_static = false
         author_link = "https://author-url.com/"
         twitter = "@user"
         links = [
+            { name = "Email", url = "mailto:your-user@email.com", icon = "bi-envelope-fill" },
             { name = "GitHub", url = "https://github.com/", icon = "bi-github" },
+            { name = "Twitter", url = "https://twitter.com/", icon = "bi-twitter" },
+            { name = "LinkedIn", url = "https://www.linkedin.com/", icon = "bi-linkedin" },
             { name = "Facebook", url = "https://www.facebook.com/", icon = "bi-facebook" }
         ]
 

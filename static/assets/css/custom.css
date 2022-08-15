@@ -10799,12 +10799,17 @@ a:hover {
   background-color: #e9ecef;
 }
 .sidebar .sidebar-nav .sidebar-nav-item {
-  color: #495057;
   font-weight: 500;
   background-color: #e9ecef;
 }
 .sidebar .sidebar-nav .sidebar-nav-item:hover {
   background-color: #f1f3f5;
+}
+.sidebar .sidebar-nav .sidebar-nav-icon {
+  color: #495057;
+}
+.sidebar .sidebar-nav .sidebar-nav-text {
+  color: #868e96;
 }
 .sidebar .sidebar-social a {
   color: #868e96;

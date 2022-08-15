@@ -1,7 +1,10 @@
 <div class="card {% if class %}{{ class | safe }}{% endif %}">
-  <{{ heading | safe }} class="card-header">
-    {{ title | safe }}
-  </{{ heading | safe }}>
+  
+  {% if title %}
+    <{{ heading | safe }} class="card-header">
+      {{ title | safe }}
+    </{{ heading | safe }}>
+  {% endif %}
   <div class="card-body">
     <p class="card-text">
       {{ content | safe }}

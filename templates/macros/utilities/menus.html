@@ -17,8 +17,8 @@
         class="sidebar-nav-item list-group-item list-group-item-action border border-0"
         data-bs-toggle="tooltip" data-bs-title="{{ item.name | safe }}"
       >
-        <span class="bi {{ item.icon | safe }} {{ nav_icon_class | safe }} fs-4"></span>
-        <span class="{{ nav_text_class | safe }}">
+        <span class="sidebar-nav-icon bi {{ item.icon | safe }} {{ nav_icon_class | safe }} fs-4"></span>
+        <span class="sidebar-nav-text {{ nav_text_class | safe }}">
           {{ item.name | safe }}
         </span>
       </a>
@@ -35,35 +35,31 @@
         class="sidebar-nav-item list-group-item list-group-item-action border border-0"
         data-bs-toggle="tooltip" data-bs-title="{{ item.name | safe }}"
       >
-        <span class="bi {{ item.icon | safe }} me-1 fs-4"></span>
-        <span>{{ item.name | safe }}</span>
+        <span class="sidebar-nav-icon bi {{ item.icon | safe }} me-1 fs-4"></span>
+        <span class="sidebar-nav-text">{{ item.name | safe }}</span>
       </a>
     {%- endfor -%}
   </div>
 {%- endmacro offcanvas_sidebar_nav -%}
 
 
-{%- macro sidebar_social() -%}
+{%- macro social_links() -%}
   {%- if config.extra.social.links -%}
-    <div class="container-fluid">
-      <div class="row justify-content-center">
-        {%- for link in config.extra.social.links -%}
-          <div class="col-auto">
-            <a
-              href="{{ link.url | safe }}"
-              target="_blank" rel="noopener noreferrer"
-              data-bs-toggle="tooltip"
-              data-bs-title='{{ link.name | safe }}'
-              class="text-decoration-none"
-            >
-              <span class="bi {{ link.icon | safe }}"></span>
-            </a>
-          </div>
-        {%- endfor -%}
+    {%- for link in config.extra.social.links -%}
+      <div class="col-auto px-2">
+        <a
+          href="{{ link.url | safe }}"
+          target="_blank" rel="noopener noreferrer"
+          data-bs-toggle="tooltip"
+          data-bs-title='{{ link.name | safe }}'
+          class="text-decoration-none"
+        >
+          <span class="bi {{ link.icon | safe }}"></span>
+        </a>
       </div>
-    </div>
+    {%- endfor -%}
   {%- endif -%}
-{%- endmacro sidebar_social -%}
+{%- endmacro social_links -%}
 
 
 {%- macro top_bar_nav(page, type) -%}
