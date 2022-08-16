@@ -1,5 +1,7 @@
 # Ataraxia
 
+[![Ataraxia preview](https://raw.githubusercontent.com/gersonbdev/ataraxia-zola/main/mockup.png "Ataraxia mockup")](https://gersonbdev.github.io/)
+
 A personal theme for [Zola](https://www.getzola.org/) focused on readability that aims to be simple, beautiful, and modern. It is designed to support multiple languages and be highly customizable.
 
 The theme takes visual inspiration from the [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) and [Neumorphism](https://github.com/longpdo/neumorphism) themes.
