@@ -67,7 +67,7 @@ npm install
 ```
 
 ```console
-sass --watch sass:static/assets/css
+sass --watch scss/custom.scss:static/assets/css/custom.css
 ```
 
 > Keep in mind that the main branch of this repository only has the stable versions of the theme, if you want to see the development status and the unstable versions, change to the corresponding branch.

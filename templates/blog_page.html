@@ -76,7 +76,7 @@
             </div>
           {% endif %}
         </div>
-        {%- if page.extra.image -%}
+        {%- if page.extra.image.visible_in_page -%}
           <div class="post-img mb-4 rounded-3">
             <img
               src="{{ get_url(path = page.extra.image.path) | safe }}"

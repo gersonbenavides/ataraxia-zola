@@ -1,6 +1,6 @@
 {
   "name": "ataraxia-zola",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A simple and beautiful theme",
   "main": "index.js",
   "scripts": {
