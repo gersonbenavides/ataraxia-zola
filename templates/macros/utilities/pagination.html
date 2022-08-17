@@ -1,59 +1,61 @@
 {%- macro pagination(paginator) -%}
-  <nav aria-label="Page navigation" class="mt-5 mb-4">
-    <ul class="pagination justify-content-center">
-      {%- if paginator.previous -%}
-        <li class="page-item">
-          <a class="page-link" href="{{ paginator.first | safe }}">
-            &laquo;
-          </a>
-        </li>
-      {%- else -%}
-        <li class="page-item disabled">
-          <a class="page-link">&laquo;</a>
-        </li>
-      {%- endif -%}
-
-      {% for i in [2, 1] %}
-        {% set previous_pager = (paginator.current_index - i)  %}
-        {%- if previous_pager > 0  -%}
+  {%- if paginator.number_pagers > 1 -%}
+    <nav aria-label="Page navigation" class="mt-5 mb-4">
+      <ul class="pagination justify-content-center">
+        {%- if paginator.previous -%}
           <li class="page-item">
-            <a class="page-link" 
-              href="{{ paginator.base_url ~ previous_pager ~ '/' | safe  }}"
-            >
-              {{ previous_pager | safe }}
+            <a class="page-link" href="{{ paginator.first | safe }}">
+              &laquo;
             </a>
           </li>
-        {%- endif -%}
-      {% endfor %}
-
-      <li class="page-item active">
-        <a class="page-link" href="">{{ paginator.current_index | safe }}</a>
-      </li>
-      
-      {% for i in [1, 2] %}
-        {% set next_pager = (paginator.current_index + i)  %}
-        {%- if next_pager <= paginator.number_pagers  -%}
-          <li class="page-item">
-            <a class="page-link" 
-              href="{{ paginator.base_url ~ next_pager ~ '/' | safe  }}"
-            >
-              {{ next_pager | safe }}
-            </a>
+        {%- else -%}
+          <li class="page-item disabled">
+            <a class="page-link">&laquo;</a>
           </li>
         {%- endif -%}
-      {% endfor %}
-      
-      {%- if paginator.next -%}
-        <li class="page-item">
-          <a class="page-link" href="{{ paginator.last | safe }}">
-            &raquo;
-          </a>
+
+        {%- for i in [2, 1] -%}
+          {%- set previous_pager = (paginator.current_index - i)  -%}
+          {%- if previous_pager > 0  -%}
+            <li class="page-item">
+              <a class="page-link" 
+                href="{{ paginator.base_url ~ previous_pager ~ '/' | safe  }}"
+              >
+                {{ previous_pager | safe }}
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+
+        <li class="page-item active">
+          <a class="page-link" href="">{{ paginator.current_index | safe }}</a>
         </li>
-      {%- else -%}
-        <li class="page-item disabled">
-          <a class="page-link">&raquo;</a>
-        </li>
-      {%- endif -%}
-    </ul>
-  </nav>
+        
+        {%- for i in [1, 2] -%}
+          {%- set next_pager = (paginator.current_index + i)  -%}
+          {%- if next_pager <= paginator.number_pagers  -%}
+            <li class="page-item">
+              <a class="page-link" 
+                href="{{ paginator.base_url ~ next_pager ~ '/' | safe  }}"
+              >
+                {{ next_pager | safe }}
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+        
+        {%- if paginator.next -%}
+          <li class="page-item">
+            <a class="page-link" href="{{ paginator.last | safe }}">
+              &raquo;
+            </a>
+          </li>
+        {%- else -%}
+          <li class="page-item disabled">
+            <a class="page-link">&raquo;</a>
+          </li>
+        {%- endif -%}
+      </ul>
+    </nav>
+  {%- endif -%}
 {%- endmacro pagination -%}
