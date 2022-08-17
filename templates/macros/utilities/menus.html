@@ -96,3 +96,24 @@
     </div>
   </div>
 {%- endmacro top_bar_nav -%}
+
+{%- macro simple_top_bar_nav(type) -%}
+  {%- if type == "page" -%}
+    {%- set top_navbar_class = "justify-content-center justify-content-md-start" -%}
+  {%- else -%}
+    {%- set top_navbar_class = "justify-content-center justify-content-xl-start" -%}
+  {%- endif -%}
+
+  <div class="col-6">
+    <div class="row {{ top_navbar_class | safe }} p-2 ps-xl-3 text-center">      
+      <div class="col-auto">
+        <a
+          href="{{ config.base_url | safe }}"
+          class="text-decoration-none"
+        >
+          {{ config.title }}
+        </a>
+      </div>
+    </div>
+  </div>
+{%- endmacro simple_top_bar_nav -%}
