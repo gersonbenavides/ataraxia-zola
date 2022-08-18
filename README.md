@@ -80,7 +80,10 @@ This theme is mainly built on [Zola](https://www.getzola.org/) and [Bootstrap](h
 
 
 ## Sponsoring
-[![Liberapay](https://img.shields.io/badge/Finance%20the%20project-F6C915?style=flat&logo=liberapay&logoColor=ffffff "Finance the project")](https://liberapay.com/gersonbenavides/donate)
+
+[![Liberapay](https://img.shields.io/badge/Financia%20mi%20trabajo-F6C915?style=flat&logo=liberapay&logoColor=ffffff "Finance my work")](https://liberapay.com/gersonbenavides/donate)
+
+[![PayPal](https://img.shields.io/badge/Realiza%20una%20donación-00457C?style=flat&logo=paypal "Make a donation")](https://paypal.me/gersonbdev?country.x=CO&locale.x=es_XC)
 
 
 ## License
