@@ -25,7 +25,7 @@ $light:               $oc-gray-0;
 $dark:                $oc-gray-8;
 
 
-$offcanvas-horizontal-width: 208px;
+$offcanvas-horizontal-width: 224px;
 
 
 @import "../node_modules/bootstrap/scss/bootstrap";
@@ -136,5 +136,5 @@ a:hover {
 }
 
 .btn-taxonomy {
-    background-color: $oc-gray-2;
+    background-color: $oc-gray-1;
 }

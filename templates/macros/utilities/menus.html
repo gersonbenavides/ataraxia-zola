@@ -35,7 +35,7 @@
         class="sidebar-nav-item list-group-item list-group-item-action border border-0"
         data-bs-toggle="tooltip" data-bs-title="{{ item.name | safe }}"
       >
-        <span class="sidebar-nav-icon bi {{ item.icon | safe }} me-1 fs-4"></span>
+        <span class="sidebar-nav-icon bi {{ item.icon | safe }} ms-2 me-1 fs-4"></span>
         <span class="sidebar-nav-text">{{ item.name | safe }}</span>
       </a>
     {%- endfor -%}
@@ -64,7 +64,7 @@
 
 {%- macro top_bar_nav(page, type) -%}
   {%- if type == "page" -%}
-    {%- set top_navbar_class = "justify-content-center justify-content-md-start" -%}
+    {%- set top_navbar_class = "justify-content-center justify-content-lg-start" -%}
   {%- else -%}
     {%- set top_navbar_class = "justify-content-center justify-content-xl-start" -%}
   {%- endif -%}
@@ -79,7 +79,7 @@
           href="{{ section.permalink | safe }}"
           class="text-decoration-none"
         >
-          {{ section.title | safe }}
+          {{ section.title | truncate(length=40) | safe }}
         </a>
       </div>
       <div class="col-auto d-none d-xl-block">
@@ -90,8 +90,19 @@
     {%- endif -%}
 
     <div class="col-auto">
-      <span class="text-secondary">
-        {{ page.title | safe }}
+      <span
+        class="d-inline d-sm-none text-secondary"
+        data-bs-toggle="tooltip"
+        data-bs-title="{{ page.title | safe }}"
+      >
+        {{ page.title | truncate(length=16) | safe }}
+      </span>
+      <span
+        class="d-none d-sm-inline text-secondary"
+        data-bs-toggle="tooltip"
+        data-bs-title="{{ page.title | safe }}"
+      >
+        {{ page.title | truncate(length=40) | safe }}
       </span>
     </div>
   </div>
@@ -99,21 +110,25 @@
 
 {%- macro simple_top_bar_nav(type) -%}
   {%- if type == "page" -%}
-    {%- set top_navbar_class = "justify-content-center justify-content-md-start" -%}
+    {%- set top_navbar_class = "justify-content-center justify-content-lg-start" -%}
   {%- else -%}
     {%- set top_navbar_class = "justify-content-center justify-content-xl-start" -%}
   {%- endif -%}
 
-  <div class="col-6">
-    <div class="row {{ top_navbar_class | safe }} p-2 ps-xl-3 text-center">      
-      <div class="col-auto">
-        <a
-          href="{{ config.base_url | safe }}"
-          class="text-decoration-none"
-        >
-          {{ config.title }}
-        </a>
-      </div>
+  <div class="row {{ top_navbar_class | safe }} p-2 ps-xl-3 text-center">      
+    <div class="col-auto">
+      <a
+        href="{{ config.base_url | safe }}"
+        class="d-inline d-sm-none text-decoration-none"
+      >
+        {{ config.title | truncate(length=16) | safe }}
+      </a>
+      <a
+        href="{{ config.base_url | safe }}"
+        class="d-none d-sm-inline text-decoration-none"
+      >
+        {{ config.title | truncate(length=40) | safe }}
+      </a>
     </div>
   </div>
 {%- endmacro simple_top_bar_nav -%}

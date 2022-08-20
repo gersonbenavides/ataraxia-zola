@@ -16,7 +16,7 @@
                 {{ config.extra.author | safe }}&period;
               </a>
               <a
-                href="#"
+                href="{{ config.extra.copyright.url | safe }}"
                 data-bs-toggle="tooltip"
                 data-bs-title="{{ trans(key='full_copyright') | safe }}"
                 class="text-secondary text-decoration-none"

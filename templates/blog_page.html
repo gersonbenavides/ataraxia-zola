@@ -25,8 +25,8 @@
 
 {%- block content -%}
   <main class="container">
-    <div class="row justify-content-center mt-5 mb-3">
-      <div class="col-10 col-lg-9 col-xl-8">
+    <div class="row justify-content-center mt-5">
+      <div class="col-11 col-lg-10 col-xxl-9">
         <h1 class="mb-3">
           {{ page.title | safe }}
         </h1>
@@ -85,11 +85,11 @@
             >
           </div>
         {%- endif -%}
-        <div>
+        <div class="mb-5">
           {{ page.content | safe }}
         </div>
         {% if page.taxonomies.categories %}
-          <div class="row">
+          <div class="row my-1">
             <div class="col-auto">
               <span class="bi bi-bookmarks fs-6 me-1"></span>
               {{ posts::categories_btn(categories = page.taxonomies.categories) }}
@@ -97,7 +97,7 @@
           </div>
         {% endif %}
         {% if page.taxonomies.tags %}
-          <div class="row">
+          <div class="row mt-1 mb-3">
             <div class="col-auto">
               <span class="bi bi-tags fs-6 me-1"></span>
               {{ posts::tags_btn(tags = page.taxonomies.tags) }}
@@ -113,7 +113,7 @@
 {%- block comments -%}
   <div class="container">
     <div class="row justify-content-center mt-3 mb-4">
-      <div class="col-10 col-lg-9 col-xl-8">
+      <div class="col-11 col-lg-10 col-xxl-9">
         {%- if page.extra.page_identifier -%}
           {{ comments::disqus(page = page) }}
         {%- endif -%}

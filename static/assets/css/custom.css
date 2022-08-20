@@ -5995,7 +5995,7 @@ textarea.form-control-lg {
   }
 }
 .offcanvas, .offcanvas-xxl, .offcanvas-xl, .offcanvas-lg, .offcanvas-md, .offcanvas-sm {
-  --bs-offcanvas-width: 208px;
+  --bs-offcanvas-width: 224px;
   --bs-offcanvas-height: 30vh;
   --bs-offcanvas-padding-x: 1rem;
   --bs-offcanvas-padding-y: 1rem;
@@ -10845,7 +10845,7 @@ a:hover {
 }
 
 .btn-taxonomy {
-  background-color: #e9ecef;
+  background-color: #f1f3f5;
 }
 
 /*# sourceMappingURL=custom.css.map */

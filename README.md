@@ -10,11 +10,11 @@ The theme takes visual inspiration from the [Chirpy](https://github.com/cotes202
 
 Open a command terminal at your site path and run:
 
-```console
+```bash
 cd themes
 ```
 
-```console
+```bash
 git clone https://github.com/gersonbdev/ataraxia-zola.git
 ```
 
@@ -53,7 +53,7 @@ page_template = "blog_page.html"
 
 You can display the result of your website by running:
 
-```console
+```bash
 zola serve
 ```
 
@@ -64,11 +64,11 @@ By default, the theme comes with all the scss styles already compiled, in such a
 
 If you want to edit the theme's styles, you'll need to have a [Node.js](https://nodejs.org/) interpreter and a [Sass compiler](https://sass-lang.com/install) installed. After that, go to the main path of the theme and execute:
 
-```console
+```bash
 npm install
 ```
 
-```console
+```bash
 sass --watch scss/custom.scss:static/assets/css/custom.css
 ```
 
@@ -81,9 +81,9 @@ This theme is mainly built on [Zola](https://www.getzola.org/) and [Bootstrap](h
 
 ## Sponsoring
 
-[![Liberapay](https://img.shields.io/badge/Financia%20mi%20trabajo-F6C915?style=flat&logo=liberapay&logoColor=ffffff "Finance my work")](https://liberapay.com/gersonbenavides/donate)
+[![Liberapay](https://img.shields.io/badge/Finance%20my%20work-F6C915?style=flat&logo=liberapay&logoColor=ffffff "Finance my work")](https://liberapay.com/gersonbenavides/donate)
 
-[![PayPal](https://img.shields.io/badge/Realiza%20una%20donación-00457C?style=flat&logo=paypal "Make a donation")](https://paypal.me/gersonbdev?country.x=CO&locale.x=es_XC)
+[![PayPal](https://img.shields.io/badge/Make%20a%20donation-00457C?style=flat&logo=paypal "Make a donation")](https://paypal.me/gersonbdev?country.x=CO&locale.x=es_XC)
 
 
 ## License

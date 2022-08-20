@@ -2,7 +2,7 @@
 
 
 {%- block title -%}
-  {{ config.title | safe }} - 404
+  {{ config.title | safe }} - {{ taxonomy.name | safe }}
 {%- endblock title -%}
 
 
@@ -12,14 +12,14 @@
 
 
 {%- block header -%}
-  {{ header::simple_header(type = "section") }}
+  {{ header::header(page = "null", type = "section") }}
 {%- endblock header -%}
 
 
 {%- block content -%}
   <main class="container">
     <div class="row justify-content-center mt-4 mb-4">
-      <div class="col-10">
+      <div class="col-11">
         <h1 class="mb-5 display-3">
           {{ taxonomy.name | safe }}
         </h1>
