@@ -15,7 +15,7 @@ cd themes
 ```
 
 ```bash
-git clone https://github.com/gersonbdev/ataraxia-zola.git
+git clone https://github.com/gersonbdev/ataraxia-zola.git ataraxia
 ```
 
 ## Configuration
