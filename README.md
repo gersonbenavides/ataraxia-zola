@@ -1,6 +1,6 @@
 # Ataraxia
 
-[![Ataraxia preview](https://raw.githubusercontent.com/gersonbdev/ataraxia-zola/main/mockup.png "Ataraxia mockup")](https://gersonbdev.github.io/)
+[![Ataraxia preview](https://raw.githubusercontent.com/gersonbenavides/ataraxia-zola/main/mockup.png "Ataraxia mockup")](https://gersonbenavides.github.io/)
 
 A personal theme for [Zola](https://www.getzola.org/) focused on readability that aims to be simple, beautiful, and modern. It is designed to support multiple languages and be highly customizable.
 
@@ -15,14 +15,14 @@ cd themes
 ```
 
 ```bash
-git clone https://github.com/gersonbdev/ataraxia-zola.git ataraxia
+git clone https://github.com/gersonbenavides/ataraxia-zola.git ataraxia
 ```
 
 ## Configuration
 
 Copy the `config_sample.toml` file to your site's main path, then rename it to `config.toml` and edit it with your site data.
 
-> You can see the [Gerson's website](https://github.com/gersonbdev/gersonbdev.github.io) repository for theme setup guide.
+> You can see the [Gerson's website](https://github.com/gersonbenavides/gersonbenavides.github.io) repository for theme setup guide.
 
 For the site to work properly you need to create a `_index.md` file within the `content` path with the following structure:
 
