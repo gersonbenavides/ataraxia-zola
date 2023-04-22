@@ -3,7 +3,7 @@ description = "A personal theme focused on ease of reading."
 license = "MPL-2.0"
 homepage = "https://github.com/gersonbenavides/ataraxia-zola"
 min_version = "0.16.0"
-demo = "https://gersonbenavides.github.io/"
+demo = "https://www.gersonb.dev/"
 
 
 [extra]
@@ -11,4 +11,4 @@ demo = "https://gersonbenavides.github.io/"
 
 [author]
 name = "Gerson Benavides"
-homepage = "https://gersonbenavides.github.io/"
+homepage = "https://github.com/gersonbenavides/ataraxia-zola"
